@@ -6,6 +6,8 @@ import { z } from 'zod'
 import { AppController } from './app.controller'
 import { PrismaService } from './database/prisma.service'
 import { SymplaService } from './sympla/sympla.service'
+import { TicketsModule } from './tickets/tickets.module'
+import { CredentialModule } from './credential/credential.module'
 
 @Module({
   imports: [
@@ -31,6 +33,8 @@ import { SymplaService } from './sympla/sympla.service'
         limit: config.get('THROTTLE_LIMIT'),
       }),
     }),
+    TicketsModule,
+    CredentialModule,
   ],
   controllers: [AppController],
   providers: [
